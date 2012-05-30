@@ -1,0 +1,16 @@
+<h1>linky</h1>
+
+  <%= form_for Link.new, :html => {:class => "form-inline well"} do |f| %>
+    <%= f.text_field :url, :placeholder => "Enter URL Here" %>
+    <%= f.submit "Add Link", :class => "btn btn-primary" %>
+  <% end %>
+
+
+<h1>Your links</h1>
+
+<% @links.each do |link| %>
+  <div class="link well">
+    <h3><%= link_to link.title || link.url, link.url %></h5>
+    <p><%= link.description %></p>
+  </div>
+<% end %>
